@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>VOICE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Start -->
+    <script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+        extend: {
+            spacing: {
+            13: "3.25rem",
+            },
+            fontFamily: {
+            inter: ["Inter"],
+            },
+        },
+        },
+    };
+    </script>
+    <!-- Tailwind End -->
+        
+    <!-- Css Start -->
+    <style type="text/tailwindcss">
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container .content {
+        text-align: center;
+    }
+    </style>
+    <!-- Css End -->
+
+</head>
+<body class="">
+    
+    <!-- Form Start -->
+    <div class="container">
+        <div class="content">
+            <h1 class="pb-5 text-slate-900 text-2xl font-medium underline">Microphone</h1>
+        </div>
+        <div class="flex justify-center">
+            <button class="group p-5 border-2 border-[#000000] hover:border-gray-700 focus:bg-gray-700 focus:border-gray-700 rounded-full transition-colors duration-700 transform focus:outline-none focus:ring focus:ring-gray-500">
+                <!-- Icon -->
+                <svg class="w-16 stroke-[2] transition-colors duration-700 transform stroke-[#000000] group-hover:stroke-gray-700 group-focus:stroke-[#FFFFFF]" fill="none" stroke="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2 C12 2 12 6 12 6 L12 16 C12 16 12 20 16 20 20 20 20 16 20 16 L20 6 C20 6 20 2 16 2 Z M8 17 C8 17 8 24 16 24 24 24 24 17 24 17 M13 29 L19 29 M16 24 L16 29" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Form End -->
+
+    <!-- Script Start -->
+    <script>
+
+    </script>
+    <!-- Script End -->
+
+</body>
+</html>
