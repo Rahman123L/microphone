@@ -24,7 +24,7 @@
     };
     </script>
     <!-- Tailwind End -->
-        
+
     <!-- Css Start -->
     <style type="text/tailwindcss">
     body, html {
@@ -47,35 +47,25 @@
 
 </head>
 <body class="">
-    
+
     <!-- Form Start -->
     <div class="container">
         <div class="content">
-            <h1 class="pb-5 text-slate-900 text-2xl font-medium underline">Microphone</h1>
+            <h1 class="pb-5 text-slate-900 text-2xl font-medium underline">Microphone <span id="title">OFF</span></h1>
         </div>
+            
         <div class="flex justify-center">
-            <button class="group p-5 border-2 border-[#000000] hover:border-gray-700 focus:bg-gray-700 focus:border-gray-700 rounded-full transition-colors duration-700 transform focus:outline-none focus:ring focus:ring-gray-500">
+            <button onclick="toggleMic(true)" id="on" class="group p-5 border-2 border-[#000000] hover:border-gray-700 rounded-full transition-colors duration-700 transform focus:outline-none hover:ring hover:ring-gray-500 ring-opacity-40"> 
                 <!-- Icon -->
-                <svg class="w-16 stroke-[2] transition-colors duration-700 transform stroke-[#000000] group-hover:stroke-gray-700 group-focus:stroke-[#FFFFFF]" fill="none" stroke="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 2 C12 2 12 6 12 6 L12 16 C12 16 12 20 16 20 20 20 20 16 20 16 L20 6 C20 6 20 2 16 2 Z M8 17 C8 17 8 24 16 24 24 24 24 17 24 17 M13 29 L19 29 M16 24 L16 29" stroke-linecap="round"/>
+                <svg class="w-16 stroke-[3] transition-colors duration-700 transform stroke-[#000000] group-hover:stroke-gray-700" fill="none" stroke="currentColor" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M47.67,28.43v3.38a15.67,15.67,0,0,1-31.34,0V28.43" stroke-linecap="round"/><path d="M41.07,24.44v7.34a8.89,8.89,0,0,1-8.89,8.89h-.65a5.66,5.66,0,0,1-1.31-.09" stroke-linecap="round"/><path d="M23.56,35.73a9,9,0,0,1-.92-3.95V15.34a8.89,8.89,0,0,1,8.89-8.89h.65a8.9,8.9,0,0,1,8,5" stroke-linecap="round"/><line x1="31.73" y1="57.34" x2="31.73" y2="47.71" stroke-linecap="round"/><line x1="37.14" y1="57.55" x2="26.43" y2="57.55" stroke-linecap="round"/><line x1="49" y1="6.99" x2="16.33" y2="52.53" stroke-linecap="round"/>
                 </svg>
             </button>
-        </div>
-
-        <div class="flex justify-center">
-            <button class="group p-5 border-2 border-[#000000] hover:border-gray-700 rounded-full transition-colors duration-700 transform">
+            
+           <button onclick="toggleMic(false)" id="off" class="hidden group p-5 border-2 bg-gray-700 border-gray-700 rounded-full transition-colors duration-700 transform outline-none ring ring-gray-500">
                 <!-- Icon -->
-                <svg class="w-16 stroke-[2] transition-colors duration-700 transform stroke-[#000000] group-hover:stroke-gray-700" fill="none" stroke="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 2 C12 2 12 6 12 6 L12 16 C12 16 12 20 16 20 20 20 20 16 20 16 L20 6 C20 6 20 2 16 2 Z M8 17 C8 17 8 24 16 24 24 24 24 17 24 17 M13 29 L19 29 M16 24 L16 29" stroke-linecap="round"/>
-                </svg>
-            </button>
-        </div>
-
-        <div class="flex justify-center">
-            <button class="group p-5 border-2 bg-gray-700 border-gray-700 rounded-full transition-colors duration-700 transform outline-none ring ring-gray-500">
-                <!-- Icon -->
-                <svg class="w-16 stroke-[2] transition-colors duration-700 transform stroke-[#FFFFFF]" fill="none" stroke="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 2 C12 2 12 6 12 6 L12 16 C12 16 12 20 16 20 20 20 20 16 20 16 L20 6 C20 6 20 2 16 2 Z M8 17 C8 17 8 24 16 24 24 24 24 17 24 17 M13 29 L19 29 M16 24 L16 29" stroke-linecap="round"/>
+                <svg class="w-16 stroke-[3] transition-colors duration-700 transform stroke-[#FFFFFF]" fill="none" stroke="currentColor" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M47.67,28.43v3.38a15.67,15.67,0,0,1-31.34,0V28.43" stroke-linecap="round"/><rect x="22.51" y="6.45" width="18.44" height="34.22" rx="8.89" stroke-linecap="round"/><line x1="31.73" y1="57.34" x2="31.73" y2="47.71" stroke-linecap="round"/><line x1="37.14" y1="57.55" x2="26.43" y2="57.55" stroke-linecap="round"/>
                 </svg>
             </button>
         </div>
@@ -84,7 +74,35 @@
 
     <!-- Script Start -->
     <script>
+        const toggleMic = (e) => {
+        if (e) {
+            const onButton = document.getElementById("on");
+            const offButton = document.getElementById("off");
+            const title = document.getElementById("title");
 
+            title.innerHTML = "On";
+
+            onButton.classList.add("hidden");
+            offButton.classList.remove("hidden");
+
+            setTimeout(() => {
+                onButton.classList.add("delayed");
+            }, 400); 
+        } else {
+            const onButton = document.getElementById("on");
+            const offButton = document.getElementById("off");
+            const title = document.getElementById("title");
+
+            title.innerHTML = "Off";
+
+            onButton.classList.remove("hidden");
+            offButton.classList.add("hidden");
+
+            setTimeout(() => {
+                offButton.classList.add("delayed");
+            }, 400); 
+        }
+    }
     </script>
     <!-- Script End -->
 
